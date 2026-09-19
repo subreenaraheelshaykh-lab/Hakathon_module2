@@ -12,3 +12,13 @@ nav {
  padding: 12px 40px;
  gap: 50px;
 }
+.logo{
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.logo img{
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
