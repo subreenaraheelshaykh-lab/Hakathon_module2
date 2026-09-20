@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>All Recipes</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+     <h1>All Recipes</h1>
+
+        <p>Explore delicious recipes shared by our community.</p>
+
+
+        <!-- Search -->
+        <input
+            type="text"
+            id="search"
+            placeholder="Search recipes..."
+        >
+
+
+        <!-- Category -->
+        <select id="category">
+            <option value="all">All Categories</option>
+            <option value="Pakistani">Pakistani</option>
+            <option value="Italian">Italian</option>
+            <option value="Chinese">Chinese</option>
+            <option value="Desserts">Desserts</option>
+            <option value="Fast Food">Fast Food</option>
+            <option value="Healthy">Healthy</option>
+        </select>
+
+
+        <!-- Recipes will appear here -->
+        <div id="recipes-container"></div>
+
+    </main>
+
+
+    <!-- Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Your Supabase connection -->
+    <script src="recipes.js"></script>
+
+    <!-- Recipe JavaScript -->
+    <!-- <script src="app.js"></script> -->
+
+</body>
+</html>
