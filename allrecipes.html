@@ -1,55 +1,587 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>All Recipes</title>
+    <title>All Recipes | RecipeHub</title>
 
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
-
-     <h1>All Recipes</h1>
-
-        <p>Explore delicious recipes shared by our community.</p>
+<body class="bg-light">
 
 
-        <!-- Search -->
-        <input
-            type="text"
-            id="search"
-            placeholder="Search recipes..."
+    <!-- NAVBAR -->
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm sticky-top">
+
+        <div class="container">
+
+            <!-- Logo -->
+            <a class="navbar-brand fw-bold fs-3 text-danger" href="#">
+                <i class="bi bi-egg-fried me-2"></i>
+                RecipeHub
+            </a>
+
+
+            <!-- Mobile Button -->
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+
+            <!-- Menu -->
+            <div class="collapse navbar-collapse" id="navbarMenu">
+
+                <ul class="navbar-nav ms-auto align-items-lg-center">
+
+                    <li class="nav-item">
+                        <a class="nav-link active" href="index.html">
+                            Home
+                        </a>
+                    </li>
+
+            
+
+                    <li class="nav-item ms-lg-3 mt-2 mt-lg-0">
+
+                        <a href="login.html" class="btn btn-danger rounded-pill px-4">
+
+                            <i class="bi bi-plus-lg me-1"></i>
+
+                            Add Recipe
+
+                        </a>
+
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="py-5 hero-section">
+
+        <div class="container py-4">
+
+            <div class="row align-items-center">
+
+                <div class="col-lg-8">
+
+                    <!-- Badge -->
+                    <span class="badge bg-danger-subtle text-danger rounded-pill px-3 py-2 mb-3">
+
+                        <i class="bi bi-stars me-1"></i>
+
+                        Discover Delicious Food
+
+                    </span>
+
+
+                    <!-- Heading -->
+
+                    <h1 class="display-4 fw-bold">
+
+                        Find Your
+
+                        <span class="text-danger">
+                            Perfect Recipe
+                        </span>
+
+                    </h1>
+
+
+                    <!-- Description -->
+
+                    <p class="lead text-secondary mt-3">
+
+                        Explore delicious recipes shared by our community
+                        and discover something amazing to cook today.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= SEARCH & FILTER ================= -->
+
+    <section class="container mb-5">
+
+        <div class="card border-0 shadow-sm rounded-4 p-3">
+
+            <div class="row g-3">
+
+
+                <!-- Search -->
+
+                <div class="col-lg-8">
+
+                    <div class="input-group input-group-lg">
+
+                        <span class="input-group-text bg-white">
+
+                            <i class="bi bi-search text-danger"></i>
+
+                        </span>
+
+                        <input
+                            type="text"
+                            id="search"
+                            class="form-control"
+                            placeholder="Search recipes..."
+                        >
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Category -->
+
+                <div class="col-lg-4">
+
+                    <select
+                        id="category"
+                        class="form-select form-select-lg"
+                    >
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="Pakistani">
+                            Pakistani
+                        </option>
+
+                        <option value="Italian">
+                            Italian
+                        </option>
+
+                        <option value="Chinese">
+                            Chinese
+                        </option>
+
+                        <option value="Desserts">
+                            Desserts
+                        </option>
+
+                        <option value="Fast Food">
+                            Fast Food
+                        </option>
+
+                        <option value="Healthy">
+                            Healthy
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= RECIPES SECTION ================= -->
+
+    <section class="container pb-5">
+
+
+        <!-- Heading -->
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+
+            <div>
+
+                <h2 class="fw-bold mb-1">
+                    All Recipes
+                </h2>
+
+                <p class="text-secondary mb-0">
+                    Explore our delicious collection
+                </p>
+
+            </div>
+
+
+            <!-- Recipe Count -->
+
+            <span class="badge bg-danger rounded-pill px-3 py-2">
+
+                <span id="recipe-count">
+                    0
+                </span>
+
+                Recipes
+
+            </span>
+
+        </div>
+
+
+
+        <!-- ================= RECIPE CARDS ================= -->
+
+        <div
+            id="recipes-container"
+            class="row g-4"
         >
 
 
-        <!-- Category -->
-        <select id="category">
-            <option value="all">All Categories</option>
-            <option value="Pakistani">Pakistani</option>
-            <option value="Italian">Italian</option>
-            <option value="Chinese">Chinese</option>
-            <option value="Desserts">Desserts</option>
-            <option value="Fast Food">Fast Food</option>
-            <option value="Healthy">Healthy</option>
-        </select>
+            <!-- Recipe Card 1 -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <div class="card recipe-card shadow-sm h-100">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top"
+                        alt="Biryani"
+                    >
+
+                    <div class="card-body">
+
+                        <span class="badge bg-danger-subtle text-danger mb-2">
+                            Pakistani
+                        </span>
+
+                        <h5 class="card-title fw-bold">
+                            Chicken Biryani
+                        </h5>
+
+                        <p class="card-text text-secondary">
+                            Delicious and flavorful Pakistani chicken
+                            biryani with aromatic spices.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <small class="text-secondary">
+
+                                <i class="bi bi-clock me-1"></i>
+
+                                45 min
+
+                            </small>
+
+                            <a
+                                href="#"
+                                class="btn btn-sm btn-danger rounded-pill px-3"
+                            >
+                                View Recipe
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
 
 
-        <!-- Recipes will appear here -->
-        <div id="recipes-container"></div>
 
-    </main>
+            <!-- Recipe Card 2 -->
 
+            <div class="col-sm-6 col-lg-4">
+
+                <div class="card recipe-card shadow-sm h-100">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top"
+                        alt="Pizza"
+                    >
+
+                    <div class="card-body">
+
+                        <span class="badge bg-danger-subtle text-danger mb-2">
+                            Italian
+                        </span>
+
+                        <h5 class="card-title fw-bold">
+                            Italian Pizza
+                        </h5>
+
+                        <p class="card-text text-secondary">
+                            Crispy homemade pizza topped with cheese,
+                            tomatoes and fresh herbs.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <small class="text-secondary">
+
+                                <i class="bi bi-clock me-1"></i>
+
+                                30 min
+
+                            </small>
+
+                            <a
+                                href="#"
+                                class="btn btn-sm btn-danger rounded-pill px-3"
+                            >
+                                View Recipe
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Recipe Card 3 -->
+
+            <div class="col-sm-6 col-lg-4">
+
+                <div class="card recipe-card shadow-sm h-100">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=800&q=80"
+                        class="card-img-top"
+                        alt="Dessert"
+                    >
+
+                    <div class="card-body">
+
+                        <span class="badge bg-danger-subtle text-danger mb-2">
+                            Desserts
+                        </span>
+
+                        <h5 class="card-title fw-bold">
+                            Delicious Dessert
+                        </h5>
+
+                        <p class="card-text text-secondary">
+                            A sweet and delicious dessert perfect for
+                            every occasion.
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center">
+
+                            <small class="text-secondary">
+
+                                <i class="bi bi-clock me-1"></i>
+
+                                25 min
+
+                            </small>
+
+                            <a
+                                href="#"
+                                class="btn btn-sm btn-danger rounded-pill px-3"
+                            >
+                                View Recipe
+                            </a>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- ================= NO RECIPES ================= -->
+
+        <div
+            id="no-recipes"
+            class="text-center py-5 d-none"
+        >
+
+            <i class="bi bi-search display-1 text-secondary"></i>
+
+            <h3 class="fw-bold mt-3">
+                No Recipes Found
+            </h3>
+
+            <p class="text-secondary">
+                Try another search or category.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer class="bg-dark text-white py-5">
+
+        <div class="container">
+
+            <div class="row">
+
+                <!-- About -->
+
+                <div class="col-md-6">
+
+                    <h4 class="fw-bold">
+
+                        <i class="bi bi-egg-fried text-danger me-2"></i>
+
+                        Recipe sharing
+
+                    </h4>
+
+                    <p class="text-secondary mt-3">
+
+                        Discover delicious recipes and share your
+                        favorite food with our community.
+
+                    </p>
+
+                </div>
+
+
+                <!-- Links -->
+
+                <div class="col-md-3">
+
+                    <h6 class="fw-bold">
+                        Quick Links
+                    </h6>
+
+                    <ul class="list-unstyled mt-3">
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Home
+                            </a>
+                        </li>
+
+                        <li class="mb-2">
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Recipes
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="text-secondary text-decoration-none">
+                                Categories
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Social -->
+
+                <div class="col-md-3">
+
+                    <h6 class="fw-bold">
+                        Follow Us
+                    </h6>
+
+                    <div class="mt-3">
+
+                        <a href="#" class="text-white fs-4 me-3">
+                            <i class="bi bi-facebook"></i>
+                        </a>
+
+                        <a href="#" class="text-white fs-4 me-3">
+                            <i class="bi bi-instagram"></i>
+                        </a>
+
+                        <a href="#" class="text-white fs-4">
+                            <i class="bi bi-twitter-x"></i>
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <hr class="border-secondary my-4">
+
+
+            <div class="text-center">
+
+                <small class="text-secondary">
+
+                    © 2026 RecipeHub. All rights reserved.
+
+                </small>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+
+    <!-- ================= SCRIPTS ================= -->
 
     <!-- Supabase -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-    <!-- Your Supabase connection -->
+
+    <!-- Bootstrap 5 JS -->
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+    </script>
+
+
+    <!-- Your JavaScript -->
     <script src="recipes.js"></script>
 
-    <!-- Recipe JavaScript -->
-    <!-- <script src="app.js"></script> -->
-
 </body>
+
 </html>

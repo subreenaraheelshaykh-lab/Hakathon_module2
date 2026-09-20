@@ -11,7 +11,7 @@
 </head>
 <body>
     <!-- navbar -->
-  <header>
+  <!-- <header>
     <nav class="navbar bg-body-tertiary">
         <div class="container-fluid logo">
           <img src="./image/logo.png" alt="" class="logo" />
@@ -32,7 +32,7 @@
 
 
 
-    <div class="row d-flex justify-content-center align-items-center h-100">
+    <!-- <div class="row d-flex justify-content-center align-items-center h-100">
         <div class="col-12 col-md-9 col-lg-7 col-xl-7">
             <div class="card" style="border-radius: 15px">
                 <div class="card-body p-5">
@@ -68,19 +68,182 @@
                         </div>
 
                         <div class="d-flex justify-content-center">
-                            <button type="button" data-mdb-button-init="" data-mdb-ripple-init=""
+                            <a 
+                                href="dashboard.html"
                                 class="btn btn-success btn-block btn-lg gradient-custom-4 text-body"
-                                data-mdb-button-initialized="true" id="submitbtn">
+                                id="submitbtn"
+                            >
                                 Submit
-                            </button>
+                            </a>
                         </div>
 
                     </form>
                 </div>
             </div>
         </div>
+    </div> -->
+    <header>
+        <nav class="navbar bg-white shadow-sm">
+            <div class="container-fluid logo">
+    
+                <img src="./image/logo.png" alt="" class="logo" />
+    
+                <form class="d-flex gap-2 ms-auto nav-links" role="search">
+    
+                    <a
+                        id="homebtn"
+                        href="index.html"
+                        class="btn btn-outline-danger"
+                    >
+                        Home
+                    </a>
+    
+                    <a
+                        id="recipebtn"
+                        href="allrecipes.html"
+                        class="btn btn-outline-danger"
+                    >
+                        All Recipes
+                    </a>
+    
+                    <a
+                        id="myrecipesbtn"
+                        href="myrecipes.html"
+                        class="btn btn-outline-danger"
+                    >
+                        My Recipes
+                    </a>
+    
+                </form>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- navbar end -->
+    
+    
+    <!-- Signup Form -->
+    
+    <div class="signup-page">
+    
+        <div class="row d-flex justify-content-center align-items-center h-100">
+    
+            <div class="col-12 col-md-9 col-lg-7 col-xl-7">
+    
+                <div class="card signup-card">
+    
+                    <div class="card-body p-5">
+    
+                        <h2 class="text-uppercase text-center mb-5 fw-bold">
+                            Create an account
+                        </h2>
+    
+    
+                        <form>
+    
+                            <!-- Email -->
+    
+                            <div
+                                data-mdb-input-init=""
+                                class="form-outline mb-4"
+                                data-mdb-input-initialized="true"
+                            >
+    
+                                <input
+                                    type="email"
+                                    id="email"
+                                    class="form-control form-control-lg"
+                                />
+    
+                                <label
+                                    class="form-label"
+                                    for="email"
+                                >
+                                    Your Email
+                                </label>
+    
+                                <div class="form-notch">
+                                    <div class="form-notch-leading"></div>
+                                    <div class="form-notch-middle"></div>
+                                    <div class="form-notch-trailing"></div>
+                                </div>
+    
+                            </div>
+    
+    
+                            <!-- Password -->
+    
+                            <div
+                                data-mdb-input-init=""
+                                class="form-outline mb-4"
+                                data-mdb-input-initialized="true"
+                            >
+    
+                                <input
+                                    type="password"
+                                    id="password"
+                                    class="form-control form-control-lg"
+                                />
+    
+                                <label
+                                    class="form-label"
+                                    for="password"
+                                >
+                                    Password
+                                </label>
+    
+                                <div class="form-notch">
+                                    <div class="form-notch-leading"></div>
+                                    <div class="form-notch-middle"></div>
+                                    <div class="form-notch-trailing"></div>
+                                </div>
+    
+                            </div>
+    
+    
+                            <!-- Extra field -->
+    
+                            <div
+                                data-mdb-input-init=""
+                                class="form-outline mb-4"
+                                data-mdb-input-initialized="true"
+                            >
+    
+                                <div class="form-notch">
+                                    <div class="form-notch-leading"></div>
+                                    <div class="form-notch-middle"></div>
+                                    <div class="form-notch-trailing"></div>
+                                </div>
+    
+                            </div>
+    
+    
+                            <!-- Submit -->
+    
+                            <div class="d-flex justify-content-center">
+    
+                                <a
+                                    href="dashboard.html"
+                                    class="btn btn-danger btn-lg submit-btn"
+                                    id="submitbtn"
+                                >
+                                    Submit
+                                </a>
+    
+                            </div>
+    
+                        </form>
+    
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+        </div>
+    
     </div>
-
+    
     
 
 

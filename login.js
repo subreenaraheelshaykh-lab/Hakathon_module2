@@ -9,26 +9,24 @@ console.log(client);
 let submit = document.querySelector("#submitbtn")
 
 
-let usersname = document.querySelector("#name")
 let  usersemail = document.querySelector("#email")
 let  userspassword = document.querySelector("#password")
 submit && submit.addEventListener("click", async(event)=>{
     event.preventDefault()
-    if (!usersname.value || !usersemail.value || !userspassword.value){
+    if ( !usersemail.value || !userspassword.value){
        return 
     }
     try {
         const { error } = await client
   .from('profile')
   .insert([{
-    name : usersname.value,
     email : usersemail.value
   }])
-  usersname.value =  ""
+  
   usersname.value =  ""
   usersname.value =  ""
 
-  window.location.href = "./dashboard.html"
+  window.location.href = "./login.html"
     
     }
     catch(error){
@@ -52,20 +50,3 @@ if(window.location.pathname == "/C:/Hakathon_module2/index.html"){
     }
    } 
 }
-
-
-const logoutBtn = document.querySelector("#logout-btn");
-
-logoutBtn.addEventListener("click", async function (event) {
-
-    event.preventDefault();
-
-    const { error } = await client.auth.signOut();
-
-    if (error) {
-        console.log("Logout Error:", error);
-        return;
-    }
-
-    window.location.href = "login.html";
-});

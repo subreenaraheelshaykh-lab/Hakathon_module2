@@ -1,0 +1,963 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RecipeHub Dashboard</title>
+
+    <!-- Bootstrap 5 CSS -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    >
+
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            min-height: 100vh;
+            background: #212529;
+        }
+
+        .sidebar .nav-link {
+            color: #adb5bd;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 5px;
+        }
+
+        .sidebar .nav-link:hover,
+        .sidebar .nav-link.active {
+            color: white;
+            background-color: #35dc59;
+        }
+
+        .sidebar .nav-link i {
+            margin-right: 10px;
+        }
+
+        /* Dashboard Cards */
+        .dashboard-card {
+            border: none;
+            border-radius: 15px;
+            transition: 0.3s;
+        }
+
+        .dashboard-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        }
+
+        .icon-box {
+            width: 55px;
+            height: 55px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            font-size: 24px;
+        }
+
+        /* Main Content */
+        .main-content {
+            min-height: 100vh;
+        }
+
+        .profile-img {
+            width: 40px;
+            height: 40px;
+            object-fit: cover;
+        }
+
+        .table-card {
+            border: none;
+            border-radius: 15px;
+        }
+
+        @media (max-width: 991px) {
+            .sidebar {
+                min-height: auto;
+            }
+        }
+    </style>
+
+</head>
+
+
+<body>
+
+
+<!-- ================= NAVBAR ================= -->
+
+<nav class="navbar navbar-expand-lg bg-white shadow-sm sticky-top">
+
+    <div class="container-fluid">
+
+        <!-- Mobile Sidebar Button -->
+
+        <button
+            class="btn btn-outline-danger d-lg-none me-3"
+            type="button"
+            data-bs-toggle="offcanvas"
+            data-bs-target="#mobileSidebar"
+        >
+            <i class="bi bi-list"></i>
+        </button>
+
+
+        <!-- Logo -->
+
+        <a
+            class="navbar-brand fw-bold text-danger fs-4"
+            href="#"
+        >
+            <i class="bi bi-egg-fried me-2"></i>
+            Recipe share
+        </a>
+
+
+        <!-- Right Side -->
+
+        <div class="ms-auto d-flex align-items-center gap-3">
+
+            <!-- Profile -->
+
+            <div class="dropdown">
+
+                <button
+                    class="btn btn-light dropdown-toggle d-flex align-items-center"
+                    data-bs-toggle="dropdown"
+                >
+                   
+
+                </button>
+
+
+                <ul class="dropdown-menu dropdown-menu-end">
+
+                    <li>
+                        <a class="dropdown-item" href="#">
+                            <i class="bi bi-person me-2"></i>
+                            Profile
+                        </a>
+                    </li>
+
+                    <li>
+                        <hr class="dropdown-divider">
+                    </li>
+
+                    <li>
+                        <a class="dropdown-item text-danger" href="login.html">
+                            <i class="bi bi-box-arrow-right me-2"></i>
+                            Logout
+                        </a>
+                    </li>
+
+                </ul>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</nav>
+
+
+
+<!--PAGE LAYOUT -->
+
+<div class="container-fluid">
+
+    <div class="row">
+
+
+        <!-- ================= DESKTOP SIDEBAR ================= -->
+
+        <aside class="col-lg-2 sidebar d-none d-lg-block p-3">
+
+            <h6 class="text-secondary text-uppercase px-2 mt-2 mb-3">
+                Menu
+            </h6>
+
+
+            <nav class="nav flex-column">
+
+                <a
+                    href="dashboard.html"
+                    class="nav-link active"
+                >
+                    <i class="bi bi-grid"></i>
+                    Dashboard
+                </a>
+
+
+                <a
+                    href="create-recipe.html"
+                    class="nav-link"
+                >
+                    <i class="bi bi-book"></i>
+                    All Recipes
+                </a>
+
+
+                <a
+                    href="create-recipe.html"
+                    class="nav-link"
+                >
+                    <i class="bi bi-plus-circle"></i>
+                    Add Recipe
+                </a>
+                 <a
+                                    href="#"
+                    class="nav-link"
+                >
+                    <i class="bi bi-people"></i>
+                    Users
+                </a>
+
+
+                <hr class="border-secondary">
+
+
+                <h6 class="text-secondary text-uppercase px-2 mt-2 mb-3">
+                    Account
+                </h6>
+
+
+                <a
+                    href="#"
+                    class="nav-link"
+                >
+                    <i class="bi bi-person"></i>
+                    Profile
+                </a>
+
+
+                <a
+                    href="#"
+                    class="nav-link text-danger"
+                >
+                    <i class="bi bi-box-arrow-right"></i>
+                    Logout
+                </a>
+
+            </nav>
+
+        </aside>
+
+
+
+        <!-- ================= MOBILE SIDEBAR ================= -->
+
+        <div
+            class="offcanvas offcanvas-start bg-dark text-white"
+            tabindex="-1"
+            id="mobileSidebar"
+        >
+
+            <div class="offcanvas-header">
+
+                <h5 class="offcanvas-title fw-bold">
+                    <i class="bi bi-egg-fried text-danger me-2"></i>
+                    Recipe sharing
+                </h5>
+
+                <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    data-bs-dismiss="offcanvas"
+                ></button>
+
+            </div>
+
+
+            <div class="offcanvas-body">
+
+                <nav class="nav flex-column">
+
+                    <a
+                        href="#"
+                        class="nav-link text-white bg-danger rounded mb-2"
+                    >
+                        <i class="bi bi-grid me-2"></i>
+                        Dashboard
+                    </a>
+
+                    <a
+                        href="create-recipe.html"
+                        class="nav-link text-secondary"
+                    >
+                        <i class="bi bi-book me-2"></i>
+                        All Recipes
+                    </a>
+
+                    <a
+                        href="#"
+                        class="nav-link text-secondary"
+                    >
+                        <i class="bi bi-plus-circle me-2"></i>
+                        Add Recipe
+                    </a>
+
+                    <a
+                        href="#"
+                        class="nav-link text-secondary"
+                    >
+                        <i class="bi bi-tags me-2"></i>
+                        Categories
+                    </a>
+
+                    <a
+                        href="#"
+                        class="nav-link text-secondary"
+                    >
+                        <i class="bi bi-people me-2"></i>
+                        Users
+                    </a>
+
+                </nav>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- ================= MAIN CONTENT ================= -->
+
+        <main class="col-lg-10 main-content p-4">
+
+
+            <!-- Header -->
+
+            <div class="d-flex justify-content-between align-items-center mb-4">
+
+                <div>
+
+                    <h2 class="fw-bold mb-1">
+                        Dashboard
+                    </h2>
+
+                    <p class="text-secondary mb-0">
+                        Welcome back, Admin! Here's what's happening today.
+                    </p>
+
+                </div>
+
+
+                <a
+                    href="create-recipe.html"
+                    class="btn btn-danger d-none d-md-block"
+                >
+                    <i class="bi bi-plus-lg me-1"></i>
+                    Add Recipe
+                </a>
+
+            </div>
+
+
+
+            <!-- ================= STATISTICS ================= -->
+
+            <div class="row g-4 mb-4">
+
+
+                <!-- Recipes -->
+
+                <div class="col-sm-6 col-xl-3">
+
+                    <div class="card dashboard-card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <p class="text-secondary mb-2">
+                                        Total Recipes
+                                    </p>
+
+                                    <h3 class="fw-bold mb-0">
+                                        128
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="icon-box bg-danger-subtle text-danger">
+
+                                    <i class="bi bi-book"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <small class="text-success">
+
+                                <i class="bi bi-arrow-up"></i>
+                                12% this month
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Users -->
+
+                <div class="col-sm-6 col-xl-3">
+
+                    <div class="card dashboard-card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <p class="text-secondary mb-2">
+                                        Total Users
+                                    </p>
+
+                                    <h3 class="fw-bold mb-0">
+                                        1,245
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="icon-box bg-primary-subtle text-primary">
+
+                                    <i class="bi bi-people"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <small class="text-success">
+
+                                <i class="bi bi-arrow-up"></i>
+                                8% this month
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Categories -->
+
+                <div class="col-sm-6 col-xl-3">
+
+                    <div class="card dashboard-card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <p class="text-secondary mb-2">
+                                        Categories
+                                    </p>
+
+                                    <h3 class="fw-bold mb-0">
+                                        12
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="icon-box bg-warning-subtle text-warning">
+
+                                    <i class="bi bi-tags"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <small class="text-secondary">
+                                Active categories
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Views -->
+
+                <div class="col-sm-6 col-xl-3">
+
+                    <div class="card dashboard-card shadow-sm h-100">
+
+                        <div class="card-body">
+
+                            <div class="d-flex justify-content-between">
+
+                                <div>
+
+                                    <p class="text-secondary mb-2">
+                                        Total Views
+                                    </p>
+
+                                    <h3 class="fw-bold mb-0">
+                                        24.8K
+                                    </h3>
+
+                                </div>
+
+
+                                <div class="icon-box bg-success-subtle text-success">
+
+                                    <i class="bi bi-eye"></i>
+
+                                </div>
+
+                            </div>
+
+
+                            <small class="text-success">
+
+                                <i class="bi bi-arrow-up"></i>
+                                18% this month
+
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= QUICK ACTIONS ================= -->
+
+            <div class="card table-card shadow-sm mb-4">
+
+                <div class="card-body">
+
+                    <h5 class="fw-bold mb-3">
+                        Quick Actions
+                    </h5>
+
+
+                    <div class="row g-3">
+
+
+                        <div class="col-md-4">
+
+                            <a
+                                href="#"
+                                class="btn btn-outline-danger w-100 py-3"
+                            >
+
+                                <i class="bi bi-plus-circle fs-5 me-2"></i>
+
+                                Add New Recipe
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <a
+                                href="#"
+                                class="btn btn-outline-primary w-100 py-3"
+                            >
+
+                                <i class="bi bi-book fs-5 me-2"></i>
+
+                                Manage Recipes
+
+                            </a>
+
+                        </div>
+
+
+                        <div class="col-md-4">
+
+                            <a
+                                href="#"
+                                class="btn btn-outline-success w-100 py-3"
+                            >
+
+                                <i class="bi bi-people fs-5 me-2"></i>
+
+                                Manage Users
+
+                            </a>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ================= RECENT RECIPES ================= -->
+
+            <div class="card table-card shadow-sm">
+
+                <div class="card-body">
+
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+
+                        <div>
+
+                            <h5 class="fw-bold mb-1">
+                                Recent Recipes
+                            </h5>
+
+                            <p class="text-secondary mb-0">
+                                Latest recipes added to your website.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="#"
+                            class="btn btn-sm btn-outline-danger"
+                        >
+                            View All
+                        </a>
+
+                    </div>
+
+
+                    <div class="table-responsive">
+
+                        <table class="table align-middle">
+
+                            <thead class="table-light">
+
+                                <tr>
+
+                                    <th>
+                                        Recipe
+                                    </th>
+
+                                    <th>
+                                        Category
+                                    </th>
+
+                                    <th>
+                                        Author
+                                    </th>
+
+                                    <th>
+                                        Date
+                                    </th>
+
+                                    <th>
+                                        Status
+                                    </th>
+
+                                    <th>
+                                        Action
+                                    </th>
+
+                                </tr>
+
+                            </thead>
+
+
+                            <tbody>
+
+
+                                <!-- Row 1 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center">
+
+                                            <img
+                                                src="https://images.unsplash.com/photo-1585937421612-70a008356fbe?auto=format&fit=crop&w=100&q=80"
+                                                width="50"
+                                                height="50"
+                                                class="rounded-3 object-fit-cover me-3"
+                                                alt="Biryani"
+                                            >
+
+                                            <div>
+
+                                                <h6 class="mb-0 fw-bold">
+                                                    Chicken Biryani
+                                                </h6>
+
+                                                <small class="text-secondary">
+                                                    45 min
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="badge bg-danger-subtle text-danger">
+                                            Pakistani
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        Admin
+                                    </td>
+
+
+                                    <td>
+                                        Sep 20, 2026
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-success">
+                                            Published
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <button class="btn btn-sm btn-light">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+
+                                <!-- Row 2 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center">
+
+                                            <img
+                                                src="https://images.unsplash.com/photo-1574071318508-1cdbab80d002?auto=format&fit=crop&w=100&q=80"
+                                                width="50"
+                                                height="50"
+                                                class="rounded-3 object-fit-cover me-3"
+                                                alt="Pizza"
+                                            >
+
+                                            <div>
+
+                                                <h6 class="mb-0 fw-bold">
+                                                    Italian Pizza
+                                                </h6>
+
+                                                <small class="text-secondary">
+                                                    30 min
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+                                        <span class="badge bg-primary-subtle text-primary">
+                                            Italian
+                                        </span>
+                                    </td>
+
+
+                                    <td>
+                                        John
+                                    </td>
+
+
+                                    <td>
+                                        Sep 19, 2026
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-success">
+                                            Published
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <button class="btn btn-sm btn-light">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+
+                                <!-- Row 3 -->
+
+                                <tr>
+
+                                    <td>
+
+                                        <div class="d-flex align-items-center">
+
+                                            <img
+                                                src="https://images.unsplash.com/photo-1551024506-0bccd828d307?auto=format&fit=crop&w=100&q=80"
+                                                width="50"
+                                                height="50"
+                                                class="rounded-3 object-fit-cover me-3"
+                                                alt="Dessert"
+                                            >
+
+                                            <div>
+
+                                                <h6 class="mb-0 fw-bold">
+                                                    Chocolate Dessert
+                                                </h6>
+
+                                                <small class="text-secondary">
+                                                    25 min
+                                                </small>
+
+                                            </div>
+
+                                        </div>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-warning-subtle text-warning">
+                                            Desserts
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+                                        Sarah
+                                    </td>
+
+
+                                    <td>
+                                        Sep 18, 2026
+                                    </td>
+
+
+                                    <td>
+
+                                        <span class="badge bg-warning text-dark">
+                                            Pending
+                                        </span>
+
+                                    </td>
+
+
+                                    <td>
+
+                                        <button class="btn btn-sm btn-light">
+                                            <i class="bi bi-three-dots"></i>
+                                        </button>
+
+                                    </td>
+
+                                </tr>
+
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- Footer -->
+
+            <div class="text-center text-secondary mt-4">
+
+                <small>
+                    © 2026 RecipeHub Dashboard
+                </small>
+
+            </div>
+
+
+        </main>
+
+    </div>
+
+</div>
+
+<a href="#" id="logout-btn" class="logout-btn">
+    <i class="bi bi-box-arrow-right"></i>
+    Logout
+</a>
+
+<!-- Bootstrap JS -->
+
+<script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js">
+</script>
+
+<script src="logout.js"></script>
+
+</body>
+
+</html>

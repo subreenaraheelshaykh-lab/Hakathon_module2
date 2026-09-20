@@ -1,4 +1,4 @@
-.bglight-color{
+/* .bglight-color{
     background-color: rgb(234, 241, 228);
 }
 header{
@@ -21,4 +21,103 @@ nav {
     width: 55px;
     height: 55px;
     object-fit: contain;
+} */
+
+
+
+
+
+
+
+
+
+
+.bglight-color {
+    background-color: #fff5f5;
+}
+
+header {
+    background-color: #ffffff;
+    border-bottom: 1px solid #eeeeee;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 12px 40px;
+    gap: 50px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.logo img {
+    width: 55px;
+    height: 55px;
+    object-fit: contain;
+}
+
+
+/* Navbar Buttons */
+
+.nav-links .btn {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+
+/* Hero */
+
+.bglight-color h1 {
+    color: #212529;
+}
+
+.bglight-color .lead {
+    color: #6c757d;
+}
+
+
+/* Explore Button */
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+}
+
+.btn-danger:hover {
+    background-color: #bb2d3b;
+    border-color: #b02a37;
+}
+
+
+/* Navbar Red Hover */
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #ffffff;
+}
+
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    nav {
+        padding: 12px 15px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: flex-end;
+    }
+
+    .nav-links .btn {
+        font-size: 14px;
+    }
+
 }

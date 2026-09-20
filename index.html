@@ -1,65 +1,157 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Recipe share</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body>
+    <!-- navbar -->
+    <!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recipe share</title>
 
+    <link rel="stylesheet" href="style.css" />
 
-</head>
-<body>
-  <!-- navbar -->
-  <header>
-    <nav class="navbar bg-body-tertiary">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB"
+      crossorigin="anonymous"
+    />
+  </head>
+
+  <body>
+
+    <!-- navbar -->
+    <header>
+      <nav class="navbar bg-body-tertiary">
         <div class="container-fluid logo">
+          
           <img src="./image/logo.png" alt="" class="logo" />
+
           <form class="d-flex gap-2 ms-auto nav-links" role="search">
-            <a id="homebtn"    href="index.html"    class="btn btn-outline-success">Home</a>
-            <a  id="signupbtn" href="signup.html"  class="btn btn-outline-success" >Sign up </a>
-            <a id="loginbtn"  href="login.html"   class="btn btn-outline-success">login</a>            
+
+            <a
+              id="dashboardbtn"
+              href="dashboard.html"
+              class="btn btn-outline-danger"
+            >
+              Dashboard
+            </a>
+
+            <a
+              id="homebtn"
+              href="index.html"
+              class="btn btn-outline-danger"
+            >
+              Home
+            </a>
+
+            <a
+              id="signupbtn"
+              href="signup.html"
+              class="btn btn-outline-danger"
+            >
+              Sign up
+            </a>
+
+            <a
+              id="loginbtn"
+              href="login.html"
+              class="btn btn-outline-danger"
+            >
+              Login
+            </a>
+
           </form>
         </div>
       </nav>
+    </header>
 
-  </header>
- 
-  <!-- navbar end -->
-   <!--hero section start-->
+    <!-- navbar end -->
 
-   <div class="container-fluid col-xxl-8 px-4 py-5  bglight-color">
-    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
-      <div class="col-10 col-sm-8 col-lg-5">
-        <img
-          src="./image/biryani.png"
-          class="d-block mx-lg-auto img-fluid"
-          alt="Bootstrap Themes"
-          width="700"
-          height="500"
-          loading="lazy"
-        />
+
+    <!-- hero section start -->
+
+    <div class="container-fluid col-xxl-8 px-4 py-5 bglight-color">
+
+      <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+
+        <div class="col-10 col-sm-8 col-lg-5">
+
+          <img
+            src="./image/biryani.png"
+            class="d-block mx-lg-auto img-fluid"
+            alt="Bootstrap Themes"
+            width="700"
+            height="500"
+            loading="lazy"
+          />
+
+        </div>
+
+        <div class="col-lg-7">
+
+          <h1 class="display-5 fw-bold lh-1 mb-3">
+            Share your Favorite Recipes
+          </h1>
+
+          <p class="lead">
+            Discover delicious recipes, share your own creations, and enjoy
+            cooking with our recipe community
+          </p>
+
+          <a
+            href="recipes.html"
+            class="btn btn-danger"
+          >
+            Explore Recipes
+          </a>
+
+        </div>
+
       </div>
-      <div class="col-lg-7">
-        <h1 class="display-5 fw-bold lh-1 mb-3">Share your Favorite Recipes</h1>
-        <p class="lead">
-          Discover delicious recipes, share your own creations, and enjoy cooking with our recipe community
-        </p>
-        <a href="recipes.html" class="btn btn-outline-success">Explore Recipes</a>
-      </div>
+
     </div>
-  </div>
 
-  <!-- hero section end  -->
-
+    <!-- hero section end -->
 
 
+    <!-- javascript link -->
 
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-   <!-- javascript link -->
-   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-   <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-   <script src="app.js"></script>
-</body>
+    <script src="app.js"></script>
+
+  </body>
+</html>
+
+    <!-- hero section end  -->
+
+    <!-- javascript link -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="app.js"></script>
+  </body>
 </html>
